@@ -1,14 +1,14 @@
 import { Connection, Keypair, PublicKey } from "@solana/web3.js"
 import { Program, Wallet, AnchorProvider, Idl } from "@coral-xyz/anchor"
 import { IDL } from "./programs/Turbin3_prereq";
-import { wallet }  from "./Turbin3-wallet.json"
+import wallet from "./Turbin3-wallet.json"
 import bs58 from "bs58";
 
-const keypair = Keypair.fromSecretKey(new Uint8Array(bs58.decode(wallet)));
+const keypair = Keypair.fromSecretKey(new Uint8Array((wallet)));
 
 const connection = new Connection("https://api.devnet.solana.com");
 
-const github = Buffer.from("<frgpy>", "utf-8");
+const github = Buffer.from("frgpy", "utf-8");
 
 const provider = new AnchorProvider(connection, new Wallet(keypair), {commitment: "confirmed"});
 
